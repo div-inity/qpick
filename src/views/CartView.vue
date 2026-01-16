@@ -1,8 +1,6 @@
 <template>
-  Homeview
+  CartView
 </template>
-
-<script setup>
-</script>
+<script></script>
 <style lang="scss">
 </style>

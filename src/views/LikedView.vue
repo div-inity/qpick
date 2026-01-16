@@ -1,5 +1,5 @@
 <template>
-  Homeview
+  likedView
 </template>
 
 <script setup>

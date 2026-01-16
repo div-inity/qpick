@@ -1,5 +1,5 @@
 <template>
-  Homeview
+  <div class="container"></div>
 </template>
 
 <script setup>
