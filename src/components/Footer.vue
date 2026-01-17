@@ -59,7 +59,7 @@
     for (var i = 1; i < router.options.routes.length; i++){
       var title = router.options.routes[i].meta.title;
       var path = router.options.routes[i].path;
-      links.push({ title: title, path: path})
+      links.push({ title: title, path: path});
     }
     return links;
   }

@@ -5,23 +5,26 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/cart',
-    name: 'cart',
     meta: {
-      title: 'Избранное'
+      title: 'Домашняя'
     },
-    component: () => import(/* webpackChunkName: "cart" */ '../views/CartView.vue')
+    component: HomeView
   },
   {
     path: '/liked',
     name: 'liked',
     meta: {
-      title: 'Корзина'
+      title: 'Избранное'
     },
     component: () => import(/* webpackChunkName: "liked" */ '../views/LikedView.vue')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    meta: {
+      title: 'Корзина'
+    },
+    component: () => import(/* webpackChunkName: "cart" */ '../views/CartView.vue')
   },
   {
     path: '/contacts',
