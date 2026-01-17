@@ -10,12 +10,26 @@ const routes = [
   {
     path: '/cart',
     name: 'cart',
+    meta: {
+      title: 'Избранное'
+    },
     component: () => import(/* webpackChunkName: "cart" */ '../views/CartView.vue')
   },
   {
     path: '/liked',
     name: 'liked',
+    meta: {
+      title: 'Корзина'
+    },
     component: () => import(/* webpackChunkName: "liked" */ '../views/LikedView.vue')
+  },
+  {
+    path: '/contacts',
+    name: 'contacts',
+    meta: {
+      title: 'Контакты' 
+    },
+    component: HomeView,
   }
 ]
 

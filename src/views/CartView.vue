@@ -1,6 +1,13 @@
 <template>
-  CartView
+  
+  <Content>
+    CartView
+    <router-view/>
+  </Content>
 </template>
-<script></script>
+<script setup>
+  
+  import Content from '@/components/Content.vue';
+</script>
 <style lang="scss">
 </style>

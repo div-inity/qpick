@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    background-color: var(--price-color);
+    background-color: var(--accent-color1);
     position: absolute;
     min-width: 17.5px;
     height: 17.5px;

@@ -37,8 +37,8 @@
   --main-color: #1c1c27;
   --muted-color: #838383;
   --red-color: #df6464;
-  --price-color: #ffa542;
-  --discount-color: #ffce7f;
+  --accent-color1: #ffa542;
+  --accent-color2: #ffce7f;
 }
 
 *,
@@ -52,6 +52,23 @@
 
 a {
   text-decoration: none;
+  transition: .3s color;
+}
+svg path {
+  transition: .3s fill ;
+}
+
+button {
+  color: var(--link-color);
+  font-family: var(--font-600);
+  font-size: 17px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: .3s color;
+  &:hover {
+    color: var(--accent-color1);
+  }
 }
 
 .flex {
@@ -67,6 +84,16 @@ a {
 }
 
 .container {
-  width: 1110px;
+  width: 1110px !important;
   margin: 0 auto;
+}
+
+.logo {
+  font-family: var(--font-700);
+  font-size: 25px;
+  color: var(--bright-black-color);
+  text-transform: uppercase;
+  height: inherit;
+  display: inline-flex;
+  align-items: center;
 }

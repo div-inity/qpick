@@ -1,20 +1,19 @@
 <template>
   <div class="container header-container">
-    <nav class="flex row">
-      <router-link to="/" class="logo" aria-label="Главная страница">qpick</router-link>
-      <div class="header-actions flex row">
-        
-        <router-link :to="a.link" v-for="a in actions" class="action" :aria-label="a.label">
+    <header>
+      <nav class="flex row">
+        <router-link to="/" class="logo" aria-label="Главная страница">qpick</router-link>
+        <div class="header-actions flex row">
           
-          <Badges content="2"/>
-          <span v-html="a.icon">
+          <router-link :to="a.link" v-for="a in actions" class="action" :aria-label="a.label">
             
-          </span>
-        </router-link>
-
-      </div>
-    </nav>
-
+            <Badges content="2"/>
+            <span v-html="a.icon">
+            </span>
+          </router-link>
+        </div>
+      </nav>
+    </header>
   </div>
 </template>
 
@@ -32,6 +31,7 @@ const icons = {
 </svg>
 `,
 }
+
 
 const cartNumber = ref(null)
 const actions = {
@@ -52,15 +52,6 @@ const actions = {
     nav {
       height: 60px;
       align-items: center;
-      .logo {
-        font-family: var(--font-700);
-        font-size: 25px;
-        color: var(--bright-black-color);
-        text-transform: uppercase;
-        height: inherit;
-        display: inline-flex;
-        align-items: center;
-      }
       .header-actions {
         flex-grow: 2;
         height: inherit;
