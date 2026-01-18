@@ -8,7 +8,7 @@
           <router-link :to="a.link" v-for="a in actions" class="action" :aria-label="a.label">
             
             <Badges content="2"/>
-            <span v-html="a.icon">
+            <span v-html="a.icon" class="icon">
             </span>
           </router-link>
         </div>
@@ -65,7 +65,7 @@ const actions = {
               fill: var(--main-color);
             }
           }
-          span {
+          .icon {
             height: inherit;
             width: 62px;
             display: inline-flex;

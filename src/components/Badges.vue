@@ -1,7 +1,7 @@
 <template>
-  <div class="badge">
+  <span class="badge">
     {{ props?.content }}
-  </div>
+  </span>
 </template>
 
 <script setup>
