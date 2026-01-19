@@ -16,12 +16,15 @@
 
         {{ props.rating }}
       </div>
-      <button>Купить</button>
+      <button @click="addItem(props.id)">Купить</button>
     </div>
   </section>
 </template>
 <script setup>
+  import { extra } from '@/composables/extra';
+  const {addItem} = extra();
   const props = defineProps({
+    id: Number,
     name: String,
     price: Number,
     old_price: Number,

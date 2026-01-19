@@ -53,7 +53,6 @@
 
 <script setup>
   import router from '@/router'
-  console.log(router.options.routes)
   function getLinks() {
     var links = [];
     for (var i = 1; i < router.options.routes.length; i++){

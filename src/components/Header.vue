@@ -7,7 +7,7 @@
           
           <router-link :to="a.link" v-for="a in actions" class="action" :aria-label="a.label">
             
-            <Badges content="2"/>
+            <Badges :content="a.content" v-if="a.content" />
             <span v-html="a.icon" class="icon">
             </span>
           </router-link>
@@ -18,8 +18,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import Badges from './Badges.vue';
+import { extra } from '@/composables/extra';
+const {cart} = extra();
+//console.log(sessionStorage.getItem('cart'))
 
 const icons = {
   liked: `<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,21 +34,21 @@ const icons = {
 </svg>
 `,
 }
-
-
-const cartNumber = ref(null)
-const actions = {
-  liked: {
+console.log(cart.value)
+const actions = computed(() => [
+  {
     link: '/liked',
     icon: icons.liked,
     label: 'Избранные товары',
+    content: "2",
   },
-  cart: {
+  {
     link: '/cart',
     icon: icons.cart,
     label: 'Корзина',
+    content: cart.value.length > 0 ? cart.value.length.toString() : null,
   }
-}
+]);
 </script>
 <style lang="scss">
   .header-container {
