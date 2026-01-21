@@ -2,25 +2,16 @@
   <div class="cart-item flex row">
     <div class="count flex column">
       <img :src="props.product.img" :alt="'Изображение товара ' + props.product.name">
-      <div class="set-count flex row">
-        <button>
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15" cy="15" r="15" fill="#FFCE7F" />
-            <path d="M8 14H22V16H8V14Z" fill="white" />
-          </svg>
-        </button>
-        1
-        <button>
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15" cy="15" r="15" fill="#FFCE7F" />
-            <path d="M14 14V8H16V14H22V16H16V22H14V16H8V14H14Z" fill="white" />
-          </svg>
-        </button>
-      </div>
+      <SetCount />
     </div>
     <div class="item-info flex column">
       <div class="name">{{ props.product.name }}</div>
-      <div class="price">{{ props.product.price.toLocaleString() }} ₽</div>
+      <div class="price flex row">
+        {{ props.product.price.toLocaleString() }} ₽
+        <div class="old-price" v-if="props.product.old_price">
+          {{ props.product.old_price.toLocaleString() }} ₽
+        </div>
+      </div>
     </div>
     <div class="actions flex column">
       <button class="delete-item">
@@ -33,13 +24,14 @@
   </div>
 </template>
 <script setup>
+  import SetCount from './SetCount.vue';
   const props = defineProps({
     product: Object,
   })
 </script>
 <style lang="scss">
   .cart-item {
-    padding: 15px;
+    padding: 15px 28px 15px 15px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border-radius: 32px;
@@ -50,13 +42,7 @@
         width: 146px;
         height: 136px;
       }
-      .set-count{
-        justify-content: space-around;
-        font-family: var(--font-600);
-        font-size: 17px;
-        color: var(--link-color);
-        align-items: center;
-      }
+      
     }
     .item-info {
       flex-grow: 1;
@@ -71,6 +57,13 @@
         font-family: var(--font-600);
         font-size: 15px;
         color: #aaa;
+        column-gap: 10px;
+        .old-price {
+          text-decoration: line-through;
+          color: var(--accent-color1);
+          font-size: 13px;
+          font-family: var(--font-600);
+        }
       }
     }
     .actions {
@@ -80,6 +73,7 @@
         font-family: var(--font-600);
         font-size: 15px;
         color: var(--main-color);
+        margin-bottom: 8px;
       }
     }
   }

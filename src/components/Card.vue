@@ -16,13 +16,15 @@
 
         {{ props.rating }}
       </div>
-      <button @click="addItem(props.id)">Купить</button>
+      <button @click="addItem(props.id)" v-if="!itemInCart(props.id)">Купить</button>
+      <SetCount v-else/>
     </div>
   </section>
 </template>
 <script setup>
+  import SetCount from './SetCount.vue';
   import { extra } from '@/composables/extra';
-  const {addItem} = extra();
+  const {addItem, itemInCart} = extra();
   const props = defineProps({
     id: Number,
     name: String,
@@ -80,6 +82,10 @@
         svg path {
           fill: var(--accent-color2);
         }
+      }
+      .set-count {
+        min-width: 100px;
+        width: fit-content;
       }
     }
   }

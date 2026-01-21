@@ -4,13 +4,14 @@
       <h2>Корзина</h2>
       <div class="cart flex row">
         <div class="cart-items flex column">
-          <CartItem v-for="c in localCart" :product="c" />
+          <CartItem v-for="c in localCart()" :product="c" />
         </div>
         <div class="total">
           <div class="total-content flex row">
             ИТОГО
             <div class="total-price">₽ {{ totalPrice() }}</div>
           </div>
+          <button>Перейти к оформлению</button>
         </div>
       </div>
     </article>
@@ -23,13 +24,26 @@
   import Content from '@/components/Content.vue';
   import { extra } from '@/composables/extra';
   const {cart} = extra();
-  //console.log(cart.value);
-  const localCart = computed(() => store.getters['products/getProducts']);
+  console.log(cart.value);
+  const products = computed(() => store.getters['products/getProducts']);
+  const localCart = () => {
+    var items = [];
+    products.value.forEach(p => {
+      /* console.log("products", products) */
+      Object.values(cart.value).forEach(c => {
+        /* console.log("cart", c) */
+        if (p.id == c) {
+          items.push(p)
+          /* console.log("Найден", p) */
+        }
+      })
+    })
+    return items
+  }
   import CartItem from '@/components/CartItem.vue';
-
   function totalPrice (){
     var sum = 0;
-    localCart.value.forEach(c => sum += c.price);
+    products.value.forEach(c => sum += c.price);
     sum = sum.toLocaleString();
     return sum;
   }
@@ -57,8 +71,9 @@
         height: fit-content;
         margin-top: 7px;
         border-radius: 32px;
-        min-height: 114px;
+        min-height: 120px;
         padding: 21px;
+        position: relative;
         .total-content {
           font-family: var(--font-600);
           font-size: 15px;
@@ -68,6 +83,24 @@
             font-family: inherit;
             font-size: inherit;
             color: inherit;
+          }
+        }
+        button {
+          font-family: var(--font-600);
+          font-size: 17px;
+          text-align: center;
+          color: #fff;
+          width: inherit;
+          height: 65px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 10;
+          background: var(--bright-black-color);
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+          border-radius: 20px;
+          &:hover {
+            color: var(--accent-color1);
           }
         }
       }

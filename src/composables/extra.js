@@ -37,5 +37,6 @@ export function extra() {
     cart,
     addItem,
     loadCart,
+    itemInCart,
   }
 }
