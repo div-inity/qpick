@@ -64,57 +64,58 @@
   }
 </script>
 <style lang="scss">
-  .footer-block {
-    padding: 33px;
-    border-radius: 30px 30px 0 0;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-    background: #fff;
-    margin-top: 20px;
-    align-items: flex-start;
-    min-height: 152px;
-    justify-content: space-between;
-    
-    .main-link {
-    }
-    a:not(.logo) {
-      color: var(--link-color);
-      font-family: var(--font-400);
-      font-size: 17px;
-      &:hover {
-        color: var(--accent-color1);
+  footer{
+    .footer-block {
+      padding: 33px;
+      border-radius: 30px 30px 0 0;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+      background: #fff;
+      margin-top: 20px;
+      align-items: flex-start;
+      min-height: 152px;
+      justify-content: space-between;
+      
+      .main-link {
       }
-    }
-    menu {
-      row-gap: 14px;
-    }
-    .other-links {
-      row-gap: 37px;
-      .locale {
-        justify-content: space-between;
-        width: 75%;
-        a {
-          font-family: var(--font-500);
-          font-size: 15px;
-          color: var(--bright-black-color);
-          &:hover {
-            font-family: var(--font-700);
+      a:not(.logo) {
+        color: var(--link-color);
+        font-family: var(--font-400);
+        font-size: 17px;
+        &:hover {
+          color: var(--accent-color1);
+        }
+      }
+      menu {
+        row-gap: 14px;
+      }
+      .other-links {
+        row-gap: 37px;
+        .locale {
+          justify-content: space-between;
+          width: 75%;
+          a {
+            font-family: var(--font-500);
             font-size: 15px;
-            color: var(--accent-color1);
+            color: var(--bright-black-color);
+            &:hover {
+              font-family: var(--font-700);
+              font-size: 15px;
+              color: var(--accent-color1);
+            }
           }
         }
       }
-    }
-    .social {
-      column-gap: 17.5px;
-      align-items: center;
-      a {
-        &:hover {
-          svg path {
-            fill: var(--accent-color1);
+      .social {
+        column-gap: 17.5px;
+        align-items: center;
+        a {
+          &:hover {
+            svg path {
+              fill: var(--accent-color1);
+            }
           }
         }
       }
     }
   }
-  
 </style>

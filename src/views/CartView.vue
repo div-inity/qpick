@@ -3,10 +3,16 @@
     <article class="cart-wrapper flex column">
       <h2>Корзина</h2>
       <div class="cart flex row">
-        <div class="cart-items flex column">
+        <div class="cart-items flex column" v-if="localCart().length">
           <CartItem v-for="c in localCart()" :product="c" />
         </div>
-        <div class="total">
+        <div class="empty-cart flex column" v-else>
+          <p>
+            В корзине нет товаров. 
+            Вы можете вернуться на <span><router-link to="/" style="font-family: var(--font-500); color: var(--link-color)">Главную</router-link></span> страницу и выбрать товары.
+          </p>
+        </div>
+        <div class="total" v-if="localCart().length">
           <div class="total-content flex row">
             ИТОГО
             <div class="total-price">₽ {{ totalPrice() }}</div>
@@ -24,6 +30,7 @@
   import Content from '@/components/Content.vue';
   import { extra } from '@/composables/extra';
   const {cart} = extra();
+  import CartItem from '@/components/CartItem.vue';
   console.log(cart.value);
   const products = computed(() => store.getters['products/getProducts']);
   const localCart = () => {
@@ -40,10 +47,10 @@
     })
     return items
   }
-  import CartItem from '@/components/CartItem.vue';
   function totalPrice (){
     var sum = 0;
-    products.value.forEach(c => sum += c.price);
+    const l = localCart();
+    l.forEach(c => sum += c.price);
     sum = sum.toLocaleString();
     return sum;
   }
@@ -61,6 +68,9 @@
       column-gap: 127px;
       .cart-items {
         row-gap: 20px;
+      }
+      .empty-cart {
+        width: 100%;
       }
       .total {
         padding: 15px;

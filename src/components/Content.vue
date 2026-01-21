@@ -8,4 +8,7 @@
 <script setup>
 </script>
 <style lang="scss">
+  .content-container{
+    flex-grow: 1;
+  }
 </style>
