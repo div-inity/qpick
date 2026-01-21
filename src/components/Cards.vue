@@ -1,5 +1,5 @@
 <template>
-  <div class="cards-wrapper flex column">
+  <section class="cards-wrapper flex column">
     <h2>
       <slot name="title">
         Название блока карточек
@@ -10,7 +10,7 @@
         Здесь ничего нет
       </slot>
     </div>
-  </div>
+  </section>
 </template>
 <script setup></script>
 <style lang="scss">

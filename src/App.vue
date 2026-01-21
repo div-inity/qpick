@@ -9,11 +9,10 @@
   import Footer from './components/Footer.vue'; 
   import { extra } from '@/composables/extra';
   import { onMounted } from 'vue'
-  const {loadCart, cart} = extra();
+  const {loadCart} = extra();
 
   onMounted(() => {
     loadCart();
-    console.log(cart.value)
   })
 </script>
 <style lang="scss">
