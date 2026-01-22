@@ -29,7 +29,7 @@
   import { computed } from 'vue';
   import Content from '@/components/Content.vue';
   import { extra } from '@/composables/extra';
-  const {cart} = extra();
+  const {cart, itemCount} = extra();
   import CartItem from '@/components/CartItem.vue';
   //console.log(cart.value);
   const products = computed(() => store.getters['products/getProducts']);
@@ -50,7 +50,7 @@
   function totalPrice (){
     var sum = 0;
     const l = localCart();
-    l.forEach(c => sum += c.price);
+    l.forEach(c => sum += c.price * itemCount(c.id));
     sum = sum.toLocaleString();
     return sum;
   }
