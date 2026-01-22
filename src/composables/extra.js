@@ -48,16 +48,18 @@ export function extra() {
   function cartDecrement(id){
     var item = cart.value.find(c => c.id == id);
     if (item.count > 1) item.count--;
-    else {
-      const index = cart.value.findIndex(c => c.id === id);
-      if (index !== -1) cart.value.splice(index, 1);
-    }
+    else removeItem(id);
     saveCart();
   }
 
   function itemCount (id) {
     const c = cart.value.find(c => c.id == id);
     return c?.count;
+  }
+
+  function removeItem(id) {
+    const index = cart.value.findIndex(c => c.id === id);
+    if (index !== -1) cart.value.splice(index, 1);
   }
 
   return {
@@ -68,5 +70,6 @@ export function extra() {
     cartIncrement,
     cartDecrement,
     itemCount,
+    removeItem,
   }
 }
