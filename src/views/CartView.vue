@@ -31,7 +31,7 @@
   import { extra } from '@/composables/extra';
   const {cart} = extra();
   import CartItem from '@/components/CartItem.vue';
-  console.log(cart.value);
+  //console.log(cart.value);
   const products = computed(() => store.getters['products/getProducts']);
   const localCart = () => {
     var items = [];
@@ -39,7 +39,7 @@
       /* console.log("products", products) */
       Object.values(cart.value).forEach(c => {
         /* console.log("cart", c) */
-        if (p.id == c) {
+        if (p.id == c.id) {
           items.push(p)
           /* console.log("Найден", p) */
         }

@@ -16,15 +16,15 @@
 
         {{ props.rating }}
       </div>
-      <button @click="addItem(props.id)" v-if="!itemInCart(props.id)">Купить</button>
-      <SetCount v-else/>
+      <SetCount v-if="itemInCart(props.id) && itemCount(props.id) > 0" :id="props.id"/>
+      <button @click="addItem(props.id)" v-else>Купить</button>
     </div>
   </section>
 </template>
 <script setup>
   import SetCount from './SetCount.vue';
   import { extra } from '@/composables/extra';
-  const {addItem, itemInCart} = extra();
+  const {addItem, itemInCart, itemCount} = extra();
   const props = defineProps({
     id: Number,
     name: String,

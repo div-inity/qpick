@@ -5,17 +5,22 @@ const cart = ref([]);
 export function extra() {
 
   function itemInCart (id) {
-    return cart.value.includes(id);
+    var b = false;
+    cart.value.forEach(c => {
+      if (c.id == id) b = true;
+    })
+    return b;
   }
 
   function saveCart () {
     sessionStorage.setItem('cart', JSON.stringify(cart.value));
-    console.log(cart.value)
-    console.log(sessionStorage.getItem('cart'))
+    //console.log(cart.value)
+    //console.log(sessionStorage.getItem('cart'))
   }
 
   function addItem (id) {
-    if (!itemInCart(id)) cart.value = [...cart.value, id];
+    if (!itemInCart(id)) cart.value = [...cart.value, {id: id, count: 1}];
+    console.log(cart.value)
     saveCart();
   }
 
@@ -31,6 +36,28 @@ export function extra() {
     } else {
       cart.value = [];
     }
+    //console.log(cart.value)
+  }
+
+  function cartIncrement(id){
+    var item = cart.value.find(c => c.id == id);
+    item.count++;
+    saveCart();
+  }
+
+  function cartDecrement(id){
+    var item = cart.value.find(c => c.id == id);
+    if (item.count > 1) item.count--;
+    else {
+      const index = cart.value.findIndex(c => c.id === id);
+      if (index !== -1) cart.value.splice(index, 1);
+    }
+    saveCart();
+  }
+
+  function itemCount (id) {
+    const c = cart.value.find(c => c.id == id);
+    return c?.count;
   }
 
   return {
@@ -38,5 +65,8 @@ export function extra() {
     addItem,
     loadCart,
     itemInCart,
+    cartIncrement,
+    cartDecrement,
+    itemCount,
   }
 }

@@ -2,7 +2,7 @@
   <div class="cart-item flex row">
     <div class="count flex column">
       <img :src="props.product.img" :alt="'Изображение товара ' + props.product.name">
-      <SetCount />
+      <SetCount :id="props.product.id" />
     </div>
     <div class="item-info flex column">
       <div class="name">{{ props.product.name }}</div>
@@ -48,6 +48,7 @@
       flex-grow: 1;
       justify-content: center;
       row-gap: 12px;
+      margin-left: 26px;
       .name {
         font-family: var(--font-500);
         font-size: 17px;
