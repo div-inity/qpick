@@ -1,8 +1,13 @@
 import { ref, onMounted, computed } from 'vue'
 
 const cart = ref([]);
+const modal = ref(true);
 
 export function extra() {
+
+  function toggleModal() {
+    modal.value = !modal.value;
+  }
 
   function itemInCart (id) {
     var b = false;
@@ -63,6 +68,8 @@ export function extra() {
   }
 
   return {
+    modal,
+    toggleModal,
     cart,
     addItem,
     loadCart,

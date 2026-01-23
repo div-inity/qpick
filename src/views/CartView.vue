@@ -17,10 +17,11 @@
             ИТОГО
             <div class="total-price">₽ {{ totalPrice() }}</div>
           </div>
-          <button>Перейти к оформлению</button>
+          <button @click="toggleModal()">Перейти к оформлению</button>
         </div>
       </div>
     </article>
+    <Modal/>
   </Content>
 </template>
 <script setup>
@@ -29,8 +30,9 @@
   import { computed } from 'vue';
   import Content from '@/components/Content.vue';
   import { extra } from '@/composables/extra';
-  const {cart, itemCount} = extra();
+  const {cart, itemCount, toggleModal} = extra();
   import CartItem from '@/components/CartItem.vue';
+  import Modal from '@/components/Modal.vue';
   //console.log(cart.value);
   const products = computed(() => store.getters['products/getProducts']);
   const localCart = () => {

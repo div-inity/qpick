@@ -34,7 +34,7 @@ const icons = {
 </svg>
 `,
 }
-console.log(cart.value)
+//console.log(cart.value)
 const actions = computed(() => [
   {
     link: '/liked',
