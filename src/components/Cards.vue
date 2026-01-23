@@ -26,6 +26,15 @@
       gap: 30px;
       flex-wrap: wrap;
     }
-
+  }
+  @media screen and (max-width: 1200px) {
+    .cards-wrapper .cards {
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 840px) {
+    .cards-wrapper h2 {
+      text-align: center;
+    }
   }
 </style>

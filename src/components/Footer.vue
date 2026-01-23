@@ -118,4 +118,22 @@
       }
     }
   }
+  @media screen and (max-width: 620px) {
+    footer .footer-block .social {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    footer .footer-block {
+      flex-direction: column !important;
+      align-items: center;
+      row-gap: 20px;
+      menu, .other-links {
+        align-items: center;
+      }
+      .social {
+        flex-direction: row;
+      }
+    }
+  }
 </style>

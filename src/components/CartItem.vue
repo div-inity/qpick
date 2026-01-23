@@ -38,6 +38,7 @@
     background-color: #fff;
     border-radius: 32px;
     width: 633px;
+    min-height: 219px;
     .count {
       row-gap: 19px;
       img {
