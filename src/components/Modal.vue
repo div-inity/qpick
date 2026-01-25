@@ -26,7 +26,7 @@
         
         <div class="modal-actions flex row">
           <slot name="actions">
-            <button @click="toggleModal()">Понятно</button>
+            
           </slot>
         </div>
         
@@ -51,7 +51,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   display: none;
-  transition: 1s all;
+  transition: 1s opacity;
   z-index: 11;
   cursor: pointer;
   align-items: center;
@@ -96,7 +96,7 @@
       flex-grow: 1;
     }
     .modal-actions {
-
+      column-gap: 20px;
     }
   }
 }

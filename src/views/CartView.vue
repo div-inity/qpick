@@ -21,7 +21,7 @@
         </div>
       </div>
     </article>
-    <Modal/>
+    <Purchase :sum="totalPrice()"/>
   </Content>
 </template>
 <script setup>
@@ -32,7 +32,7 @@
   import { extra } from '@/composables/extra';
   const {cart, itemCount, toggleModal} = extra();
   import CartItem from '@/components/CartItem.vue';
-  import Modal from '@/components/Modal.vue';
+  import Purchase from '@/components/Purchase.vue';
   //console.log(cart.value);
   const products = computed(() => store.getters['products/getProducts']);
   const localCart = () => {
