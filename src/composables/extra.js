@@ -1,7 +1,7 @@
 import { ref, onMounted, computed } from 'vue'
 
 const cart = ref([]);
-const modal = ref(true);
+const modal = ref(false);
 
 export function extra() {
 

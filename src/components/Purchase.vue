@@ -55,13 +55,12 @@
 <script setup>
   import { computed, ref } from 'vue';
   import Modal from './Modal.vue';
+
   const props = defineProps({
     sum: String,
   })
 
-  const slide = ref(2);
-  
-
+  const slide = ref(1);
   const formsPayment = [
     {
       id: 0,
@@ -104,6 +103,7 @@
 <style lang="scss">
   .modal-actions {
     justify-content: space-between;
+    margin-top: 10px;
   }
   .topay {
     text-transform: uppercase;
@@ -208,6 +208,22 @@
       }
     }
   }
-  
+  @media screen and (max-width: 600px) {
+    .payment.flex.row {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .purchase-slides .slides .purchase-sum {
+      flex-direction: column;
+    }
+    .purchase-slides .slides form .forms-payment {
+      flex-direction: column;
+      align-content: center;
+      .item {
+        width: 100%;
+      }
+    }
+  }
   
 </style>

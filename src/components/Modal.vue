@@ -70,6 +70,7 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     cursor: default;
     position: relative;
+    overflow-y: auto;
     
     .close {
       height: 20px;
@@ -97,6 +98,14 @@
     }
     .modal-actions {
       column-gap: 20px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .overlay {
+    padding: 40px;
+    .modal {
+      width: 100%;
     }
   }
 }
