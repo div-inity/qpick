@@ -23,6 +23,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
   import { extra } from '@/composables/extra';
   const { removeItem, itemCount } = extra();

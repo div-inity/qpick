@@ -11,11 +11,11 @@
           </svg>
         </button>
         <div class="modal-head flex row">
-          <p class="title">
+          <div class="title">
             <slot name="title">
               Название модального окна
             </slot>
-          </p>
+          </div>
         </div>
         
         <div class="modal-content flex column">
