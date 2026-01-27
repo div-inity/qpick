@@ -1,4 +1,4 @@
-import { ref, onMounted, computed } from 'vue'
+import { ref} from 'vue'
 
 const cart = ref([]);
 const modal = ref(false);
@@ -19,13 +19,10 @@ export function extra() {
 
   function saveCart () {
     sessionStorage.setItem('cart', JSON.stringify(cart.value));
-    //console.log(cart.value)
-    //console.log(sessionStorage.getItem('cart'))
   }
 
   function addItem (id) {
     if (!itemInCart(id)) cart.value = [...cart.value, {id: id, count: 1}];
-    console.log(cart.value)
     saveCart();
   }
 
@@ -41,7 +38,6 @@ export function extra() {
     } else {
       cart.value = [];
     }
-    //console.log(cart.value)
   }
 
   function cartIncrement(id){

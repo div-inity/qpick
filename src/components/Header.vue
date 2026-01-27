@@ -4,9 +4,7 @@
       <nav class="flex row">
         <router-link to="/" class="logo" aria-label="Главная страница">qpick</router-link>
         <div class="header-actions flex row">
-          
           <router-link :to="a.link" v-for="a in actions" class="action" :aria-label="a.label">
-            
             <Badges :content="a.content" v-if="a.content" />
             <span v-html="a.icon" class="icon">
             </span>
@@ -22,7 +20,6 @@ import { computed } from 'vue';
 import Badges from './Badges.vue';
 import { extra } from '@/composables/extra';
 const {cart} = extra();
-//console.log(sessionStorage.getItem('cart'))
 
 const icons = {
   liked: `<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +31,6 @@ const icons = {
 </svg>
 `,
 }
-//console.log(cart.value)
 const actions = computed(() => [
   {
     link: '/liked',
@@ -55,25 +51,30 @@ const actions = computed(() => [
     nav {
       height: 60px;
       align-items: center;
+      
       .header-actions {
         flex-grow: 2;
         height: inherit;
         justify-content: flex-end;
+
         a.action {
           height: inherit;
           width: 62px;
           position: relative;
+
           &:hover {
             span svg path {
               fill: var(--main-color);
             }
           }
+
           .icon {
             height: inherit;
             width: 62px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            
             svg {
               path {
                 fill: var(--muted-color);

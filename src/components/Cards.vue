@@ -16,6 +16,7 @@
 <style lang="scss">
   .cards-wrapper{
     row-gap: 21px;
+
     h2 {
       font-family: var(--font-600);
       font-size: 20px;
@@ -27,6 +28,7 @@
       flex-wrap: wrap;
     }
   }
+  
   @media screen and (max-width: 1200px) {
     .cards-wrapper .cards {
       justify-content: center;

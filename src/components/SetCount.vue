@@ -18,6 +18,7 @@
 <script setup>
   import { extra } from '@/composables/extra';
   const {cartIncrement, cartDecrement, itemCount} = extra();
+
   const props = defineProps({
     id: Number,
   });
@@ -29,6 +30,7 @@
     font-size: 17px;
     color: var(--link-color);
     align-items: center;
+    
     button {
       &:hover {
         svg circle {

@@ -32,7 +32,7 @@ const routes = [
     meta: {
       title: 'Контакты' 
     },
-    component: HomeView,
+    component: () => import(/* webpackChunkName: "contacts" */ '../views/ContactView.vue'),
   }
 ]
 

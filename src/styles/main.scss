@@ -66,6 +66,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   transition: .3s color;
+
   &:hover {
     color: var(--accent-color1);
   }
@@ -104,41 +105,49 @@ button {
     padding: 0 20px;
   }
 }
+
 @media screen and (max-width: 1015px) {
   .container {
     width: 910px !important;
   }
 }
+
 @media screen and (max-width: 925px) {
   .container {
     width: 820px !important;
   }
 }
+
 @media screen and (max-width: 840px) {
   .container {
     width: 720px !important;
   }
 }
+
 @media screen and (max-width: 740px) {
   .container {
     width: 660px !important;
   }
 }
+
 @media screen and (max-width: 675px) {
   .container {
     width: 605px !important;
   }
 }
+
 @media screen and (max-width: 620px) {
   .container {
     width: 533px !important;
   }
 }
+
 @media screen and (max-width: 550px) {
   .container {
     width: 460px !important;
   }
 }
+
 @media screen and (max-width: 460px) {
   .container {
     width: 100% !important;

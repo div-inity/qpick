@@ -1,6 +1,5 @@
 <template>
   <Content>
-    <!-- <router-view/> -->
      <article class="headphones">
       <Cards>
         <template v-slot:title>Наушники</template>
@@ -61,12 +60,14 @@
   import Modal from '@/components/Modal.vue';
   import { extra } from '@/composables/extra';
   const {toggleModal, modal, addItem, itemInCart} = extra();
+
   import { computed } from 'vue';
   import { useStore } from 'vuex'
   const store = useStore();
   import Content from '@/components/Content.vue';
   import Cards from '@/components/Cards.vue';
   import Card from '@/components/Card.vue';
+
   const headphones = computed(() => store.getters['products/getHeadphones']);
   const wireless = computed(() => store.getters['products/getWireless']);
   const products = computed(() => store.getters['products/getProducts']);
@@ -82,7 +83,6 @@
     selectedID = id;
   }
 
-  
 </script>
 <style lang="scss">
   .modal {
@@ -97,15 +97,18 @@
         }
       }
     }
+
     .modal-head, .modal-content {
       span {
         color: var(--muted-color);
         font-size: 14px;
       }
     }
+
     .modal-actions {
       margin-top: 20px;
       flex-wrap: wrap;
+      
       .set-count {
         width: 100px;
       }

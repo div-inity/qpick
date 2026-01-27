@@ -4,7 +4,6 @@
       <div class="footer-block flex row">
         <div class="main-link">
           <router-link to="/" class="logo" aria-label="Главная страница">qpick</router-link>
-
         </div>
         <menu class="flex column">
           <router-link 
@@ -24,7 +23,6 @@
               <path d="M1.275 12H16.8917" stroke="#838383" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M1.275 6.16663H16.8917" stroke="#838383" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
             <a href="#">Рус</a>
             <a href="#">Eng</a>
           </div>
@@ -53,6 +51,7 @@
 
 <script setup>
   import router from '@/router'
+
   function getLinks() {
     var links = [];
     for (var i = 1; i < router.options.routes.length; i++){
@@ -64,7 +63,8 @@
   }
 </script>
 <style lang="scss">
-  footer{
+  footer {
+
     .footer-block {
       padding: 33px;
       border-radius: 30px 30px 0 0;
@@ -75,28 +75,32 @@
       min-height: 152px;
       justify-content: space-between;
       
-      .main-link {
-      }
       a:not(.logo) {
         color: var(--link-color);
         font-family: var(--font-400);
         font-size: 17px;
+        
         &:hover {
           color: var(--accent-color1);
         }
       }
+
       menu {
         row-gap: 14px;
       }
+
       .other-links {
         row-gap: 37px;
+
         .locale {
           justify-content: space-between;
           width: 75%;
+
           a {
             font-family: var(--font-500);
             font-size: 15px;
             color: var(--bright-black-color);
+
             &:hover {
               font-family: var(--font-700);
               font-size: 15px;
@@ -105,9 +109,11 @@
           }
         }
       }
+
       .social {
         column-gap: 17.5px;
         align-items: center;
+        
         a {
           &:hover {
             svg path {
@@ -118,19 +124,23 @@
       }
     }
   }
+
   @media screen and (max-width: 620px) {
     footer .footer-block .social {
       flex-direction: column;
     }
   }
+
   @media screen and (max-width: 550px) {
     footer .footer-block {
       flex-direction: column !important;
       align-items: center;
       row-gap: 20px;
+
       menu, .other-links {
         align-items: center;
       }
+      
       .social {
         flex-direction: row;
       }

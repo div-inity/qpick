@@ -24,7 +24,9 @@
 <script setup>
   import SetCount from './SetCount.vue';
   import { extra } from '@/composables/extra';
-  const {addItem, itemInCart, itemCount, toggleModal} = extra();
+
+  const {addItem, itemInCart} = extra();
+
   const props = defineProps({
     id: Number,
     name: String,
@@ -34,6 +36,7 @@
     img: String,
   });
   import Rating from './Rating.vue';
+
   const emit = defineEmits(['open-modal']);
 
   function openModal() {
@@ -56,37 +59,44 @@
       position: absolute;
       right: 22px;
       top: 22px; 
+
       &:hover {
         svg path {
           fill: var(--accent-color1);
         }
       }
+
       svg {
         width: inherit;
         height: inherit;
       }
     }
+
     * {
       font-family: var(--font-600);
     }
+
     img {
       height: 219.61px;
       width: 237.07px;
     }
+
     .item-info {
       width: 100%;
       justify-content: space-between;
       margin-top: 55px;
+
       .item-name {
         font-size: 17px;
         color: var(--main-color);
       }
+
       .prices {
         .price {
           font-size: 17px;
           color: var(--accent-color1);
-
         }
+
         .old-price{
           font-size: 13px;
           text-decoration: line-through;
@@ -95,6 +105,7 @@
         }
       }
     }
+
     .item-actions {
       width: 100%;
       justify-content: space-between;
